@@ -2,6 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button';
+// import Col from 'react-bootstrap/Col'
+// import Row from 'react-bootstrap/Row'
 
 class HornedBeasts extends React.Component {
     constructor(props) {
@@ -20,7 +22,7 @@ class HornedBeasts extends React.Component {
     render() {
         return (
             <div>
-                <Card className="text-center" style={{ width: '40%' }}>
+                <Card className="text-center" style={{ width: '40%' }} >
                     <Card.Header>Horned Beasts</Card.Header>
                     <Card.Body>
                         <Card.Title>{this.props.name}</Card.Title>
