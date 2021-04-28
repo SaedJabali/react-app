@@ -1,9 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
-// import Col from 'react-bootstrap/Col'
-// import Row from 'react-bootstrap/Row'
 
 class HornedBeasts extends React.Component {
     constructor(props) {
@@ -30,7 +27,6 @@ class HornedBeasts extends React.Component {
                         <Card.Text>
                             {this.props.description}
                         </Card.Text>
-                        {/* <Button onClick={this.userVotes} variant="primary">Vote</Button> */}
                         <Card.Text>
                             ❤️
                     {this.state.numberOfClicks}
