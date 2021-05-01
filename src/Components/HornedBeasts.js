@@ -10,6 +10,7 @@ class HornedBeasts extends React.Component {
         }
     }
     userVotes = () => {
+        this.props.showBeast();
         this.setState(
             {
                 numberOfClicks: this.state.numberOfClicks + 1
@@ -23,7 +24,8 @@ class HornedBeasts extends React.Component {
                     <Card.Header>Horned Beasts</Card.Header>
                     <Card.Body>
                         <Card.Title>{this.props.name}</Card.Title>
-                        <Card.Img onClick={this.userVotes} variant="top" src={this.props.url} />
+                        <Card.Img onClick={this.userVotes}
+                            variant="top" src={this.props.url} />
                         <Card.Text>
                             {this.props.description}
                         </Card.Text>
