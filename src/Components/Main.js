@@ -52,13 +52,13 @@ class Main extends React.Component {
                                 showBeast={this.props.showBeast} />;
                         })
                     }
-                    {/* {
+                    {
                         this.state.dataArr2.map(img => {
                             return <HornedBeast name={img.title}
                                 url={img.image_url} description={img.description}
                                 showBeast={this.props.showBeast} />;
                         })
-                    } */}
+                    }
                 </CardColumns>
             </>
         )
