@@ -9,14 +9,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Data : Data,
+      Data: Data,
       show: false,
+      selected: ''
     };
   }
-  showBeast = () => {
+  showBeast = (event) => {
     this.setState({
       show: true,
+      selected: event.target
     });
+    console.log(this.state.show);
   }
   closeModal = () => {
     this.setState({
@@ -27,10 +30,13 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Main/>
-        <ModalView>
-        show={this.state.show} closing={this.closeModal}
-        </ModalView>
+        <Main
+          showBeast={this.showBeast}
+        />
+        <ModalView
+          selected={this.state.selectedData}
+          show={this.state.show} close={this.closeModal}
+        />
         <Footer />
       </div>
     )
