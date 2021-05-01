@@ -1,75 +1,36 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from 'react';
+import React from 'react';
+import { ModalBody } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
-import Data from '../data.json';
-import HornedBeast from './HornedBeasts';
+import Button from 'react-bootstrap/Button';
+// import HornedBeast from './HornedBeasts';
 
 
 class ModalView extends React.Component {
+    render() {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      lgShow: useState(false)
+        return (
+            <>
+                <Modal show={this.props.show} onHide={this.props.closeModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>
+                            {this.props.title}
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {this.props.url}
+                    </Modal.Body>
+                    <ModalBody>
+                        {this.props.description}
+                    </ModalBody>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.props.closeModal}>
+                            Close
+          </Button>
+                    </Modal.Footer>
+                </Modal>
+            </>
+        );
     }
-  }
-  setLgShow = () => {
-    this.setState({
-      lgShow: useState(true),
-    });
-
-  }
-  render(){
-    return (
-      <Modal >
-            <Modal.Header closeButton>
-              <Modal.Title>
-               
-            <CardColumns width='100%'>
-                {
-                    Data.map(img => {
-                        return <HornedBeast name={img.title}
-                            url={img.image_url} description={img.description} />;
-                    })
-                }
-            </CardColumns>
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              {
-                Data.map(img=>{
-                  return <HornedBeast name={img.title}/>
-                })
-              }
-  
-            </Modal.Body>
-          </Modal>
-        
-    )
-  }
-
-  // function Example() {
-  //     const [lgShow, setLgShow] = useState(false);
-
-  //     return (
-  //       <>
-  //         <Button onClick={() => setSmShow(true)}>Small modal</Button>{' '}
-  //         <Button onClick={() => setLgShow(true)}>Large modal</Button>
-  //         <Modal
-  //           size="lg"
-  //           show={lgShow}
-  //           onHide={() => setLgShow(false)}
-  //           aria-labelledby="example-modal-sizes-title-lg"
-  //         >
-  //           <Modal.Header closeButton>
-  //             <Modal.Title id="example-modal-sizes-title-lg">
-  //               Large Modal
-  //             </Modal.Title>
-  //           </Modal.Header>
-  //           <Modal.Body>...</Modal.Body>
-  //         </Modal>
-  //       </>
-  //     );
-  //   },
-  //   Example();
 }
+
+export default ModalView;

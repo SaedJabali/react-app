@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HornedBeast from './HornedBeasts';
 import Data from '../data.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
