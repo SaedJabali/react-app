@@ -11,15 +11,15 @@ class App extends React.Component {
     this.state = {
       Data: Data,
       show: false,
-      selected: ''
+      selected: {},
     };
   }
   showBeast = (event) => {
+    console.log(event);
     this.setState({
       show: true,
-      selected: event.target
-    });
-    console.log(this.state.show);
+      selected: event,
+    })
   }
   closeModal = () => {
     this.setState({
@@ -33,10 +33,11 @@ class App extends React.Component {
         <Main
           showBeast={this.showBeast}
         />
-        <ModalView
-          selected={this.state.selectedData}
-          show={this.state.show} close={this.closeModal}
-        />
+        {(this.state.show) ?
+          <ModalView
+            selected={this.state.selected}
+            show={this.state.show} close={this.closeModal}
+          /> : null}
         <Footer />
       </div>
     )
