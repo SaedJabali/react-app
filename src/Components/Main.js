@@ -12,12 +12,15 @@ class Main extends React.Component {
         super(props);
         this.state = {
             Data: Data,
+            choice: false
         }
     }
     selectedNumber = (event) => {
         event.preventDefault();
+        console.log(`hi formf ;ldakhfl`,typeof (event.target.value));
         dataArr2 = [];
         this.state.Data.filter(index => {
+            console.log(typeof(index.horns));
             if (Number(event.target.value) === index.horns) {
                 dataArr2.push(index);
             } else if (event.target.value === 'Choose Number') {
@@ -25,7 +28,12 @@ class Main extends React.Component {
             }
             return dataArr2;
         })
-        this.setState({ data: dataArr2 });
+        console.log(dataArr2);
+        console.log(Data);
+        this.setState({
+            data: dataArr2,
+            choice: true
+        });
 
     }
     render() {
@@ -45,20 +53,23 @@ class Main extends React.Component {
                 </Form>
 
                 <CardColumns width='100%'>
-                    {
+                    {(this.state.choice) ?
+
+                        dataArr2.map(img => {
+                            return <HornedBeast name={img.title}
+                                url={img.image_url} description={img.description}
+                                showBeast={this.props.showBeast} />;
+                        })
+
+                        :
                         this.state.Data.map(img => {
                             return <HornedBeast name={img.title}
                                 url={img.image_url} description={img.description}
                                 showBeast={this.props.showBeast} />;
                         })
+
+
                     }
-                    {/* {
-                        this.state.dataArr2.map(img => {
-                            return <HornedBeast name={img.title}
-                                url={img.image_url} description={img.description}
-                                showBeast={this.props.showBeast} />;
-                        })
-                    } */}
                 </CardColumns>
             </>
         )
