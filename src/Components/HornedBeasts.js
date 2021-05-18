@@ -10,7 +10,7 @@ class HornedBeasts extends React.Component {
         }
     }
     userVotes = () => {
-        this.props.showBeast();
+        this.props.showBeast(this.props);
         this.setState(
             {
                 numberOfClicks: this.state.numberOfClicks + 1
