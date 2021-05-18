@@ -14,11 +14,11 @@ class ModalView extends React.Component {
                 <Modal show={this.props.show} onHide={this.props.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>
-                        {this.props.selected.name}
+                            {this.props.selected.name}
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <Card.Img src={this.props.selected.src} />
+                        <Card.Img src={this.props.selected.url} />
                     </Modal.Body>
                     <ModalBody>
                         {this.props.selected.description}
